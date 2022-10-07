@@ -24,25 +24,19 @@ AFTER YOU ARE FINISHED WITH THIS PROBLEM, ASK FOR A CODE REVIEW
 // 1. lazyAdder accepts first num and returns a function.
 // 2. Banana is invoked and lazyAdder accepts a second number.
 // 3. Banana returns
+
 const lazyAdder = (firstNum) => {
-  let sum = firstNum;
-  console.log("first number ------>" + sum)
+  let total = firstNum;
+
   return function(secondNum) {
-    sum += secondNum;
-    console.log("second number number ------>" + secondNum)
-    return function(thirdNum) {
-      sum += thirdNum;
-      console.log("third number ------>" + thirdNum)
-      return sum;
+    total += secondNum;
+
+    return function(thridNum) {
+      total += thridNum;
+      return total;
     }
   }
 }
-
-
-let firstAdd = lazyAdder(1);
-let secondAdd = firstAdd(2);
-let sum = secondAdd(3);
-console.log(sum); // prints 6
 
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
