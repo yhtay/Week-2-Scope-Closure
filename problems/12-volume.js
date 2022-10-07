@@ -13,6 +13,33 @@ function returned by recVolume should continue to return the original volume.
 
 ***********************************************************************/
 
+function recVolume(height) { // height === 10
+
+  let measurements = [height]; // measurements === [10 , 5]
+
+  let calc = (num) => {// num === 5 // num ===10
+    if (measurements.length < 3) {
+      measurements.push(num) // measurements === [10, 5] // measurements === [10, 5 , 10]
+
+      if (measurements.length === 3) {
+        return measurements.reduce((a, b) => a * b) //10 * 5 * 10 === 500
+      }
+
+      return calc
+    }
+    else {
+      return measurements.reduce((a, b) => a * b)
+    }
+  }
+  return calc
+}
+
+let first = recVolume(10) // returns calc, initializes measurements variable === [10]
+console.log(first(5))     // returns calc, pushes 5 into measurement array === [10, 5]
+console.log(first(10))    // 500
+console.log(first(10))    // 500
+
+
 
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
